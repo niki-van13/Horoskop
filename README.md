@@ -70,6 +70,9 @@ Knapp: "uppdatera mitt horoskop"
 
 onClick: ska göra ett anrop via fetch till updateHoroscope.php med innehållet i input:en. Efter anropet ska innehållet i div:en uppdateras.
 
+https://github.com/niki-van13/Horoskop/blob/main/README.md
+
+
  
 
 Om ni vill ha stilpoäng så ska denna knapp inte synas eller vara inaktiverat om horoskopet inte är sparat ännu - detta är inget krav
