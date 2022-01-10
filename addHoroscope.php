@@ -1,32 +1,32 @@
-<?php
+<?php 
 
-sesson_start();
+session_start();
+require ("HoroscopeList.php");
 
-require ("./server/listHoroscope.php");
-if ($_SERVER["REQUEST_METHOD"]) {
+    if(isset($_SERVER["REQUEST_METHOD"])) {
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if($_SERVER["REQUEST_METHOD"] === "POST") {
+            
+            if(!isset($_SESSION["zodiac"])) {
 
-    if (isset ($_SESSION["zodiac"])) {
+                $_SESSION["zodiac"] = serialize(countHoroscope($_POST["date"]));  
+                echo json_encode(true);
+                exit;
+               
+            } else {
+                echo json_encode(false."Sign saved");
+                exit;
+            }
 
-$_SESSION ["zodiac"] = serialize (listHoroscope($_POST["date"] ));
-echo json_encode(true);
-exit;
-    } else {  
-echo json_encode("ej post method");
-exit;
-  } 
-  
-  {else {
-    echo json_encode();
-    exit;
-} catch (exeption $err) {
-    error_log($err);
-}
+        } else {
+                echo json_encode("not Post method");
+                exit;
+            }
+    } else {
+        echo json_encode("Error");
+        exit;
 
-
-
-}
-
-
+    }
+        
+ 
 ?>
